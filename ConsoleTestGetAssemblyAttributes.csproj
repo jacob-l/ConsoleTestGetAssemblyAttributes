@@ -7,25 +7,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <Target Name="CustomAssemblyAttributes"
-        BeforeTargets="GetAssemblyAttributes"
-        DependsOnTargets="InitializeSourceControlInformation">
-    <ItemGroup>
-
-        <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute" Condition="'$(SourceRevisionId)' != ''">
-            <_Parameter1>SourceRevisionId</_Parameter1>
-            <_Parameter2>$(SourceRevisionId)</_Parameter2>
-        </AssemblyAttribute>
-
-        <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
-            <_Parameter1>BuildDate</_Parameter1>
-            <_Parameter2>$([System.DateTime]::Now.ToString("u"))</_Parameter2>
-        </AssemblyAttribute>
-
-        <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
-            <_Parameter1>MachineName</_Parameter1>
-            <_Parameter2>$([System.Environment]::MachineName)</_Parameter2>
-        </AssemblyAttribute>
-    </ItemGroup>
-  </Target>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
+  </ItemGroup>
 </Project>
