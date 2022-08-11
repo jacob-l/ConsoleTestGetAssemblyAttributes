@@ -3,27 +3,28 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace ConsoleTestGetAssemblyAttributes;
-
-public class Program
+namespace ConsoleTestGetAssemblyAttributes
 {
-    public static void Main()
+    public class Program
     {
-        var sb = new StringBuilder();
-        sb.AppendLine("Assembly:");
-        var assembly = Assembly.GetEntryAssembly();
-
-        var attributes = Attribute.GetCustomAttributes(assembly, typeof(AssemblyMetadataAttribute))
-            .OfType<AssemblyMetadataAttribute>().ToList();
-
-        sb.AppendLine(assembly.FullName + ":");
-
-        foreach (var att in attributes)
+        public static void Main()
         {
-            sb.AppendLine(att.Key + " - " + att.Value);
-        }
+            var sb = new StringBuilder();
+            sb.AppendLine("Assembly:");
+            var assembly = Assembly.GetEntryAssembly();
 
-        Console.WriteLine("------");
-        Console.WriteLine(sb);
+            var attributes = Attribute.GetCustomAttributes(assembly, typeof(AssemblyMetadataAttribute))
+                .OfType<AssemblyMetadataAttribute>().ToList();
+
+            sb.AppendLine(assembly.FullName + ":");
+
+            foreach (var att in attributes)
+            {
+                sb.AppendLine(att.Key + " - " + att.Value);
+            }
+
+            Console.WriteLine("------");
+            Console.WriteLine(sb);
+        }
     }
 }
