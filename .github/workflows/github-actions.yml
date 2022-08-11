@@ -19,4 +19,4 @@ jobs:
       - name: Build
         run: msbuild ConsoleTestGetAssemblyAttributes.csproj -restore
       - name: Run the app
-        run: ConsoleTestGetAssemblyAttributes\bin\Debug\net6.0\ConsoleTestGetAssemblyAttributes.exe
+        run: ./ConsoleTestGetAssemblyAttributes/bin/Debug/net6.0/ConsoleTestGetAssemblyAttributes.exe
