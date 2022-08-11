@@ -17,6 +17,6 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - name: Build
-        run: msbuild ConsoleTestGetAssemblyAttributes.csproj -restore
+        run: msbuild ConsoleTestGetAssemblyAttributes.sln -restore
       - name: Run the app
         run: .\bin\Debug\net6.0\ConsoleTestGetAssemblyAttributes.exe
