@@ -9,8 +9,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: microsoft/setup-msbuild@v1.1
-      - name: Inject slug/short variables
-        uses: rlespinasse/github-slug-action@v3.x
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0.x'
@@ -19,4 +17,4 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - name: Build
-        run: msbuild ConsoleTestGetAssemblyAttributes.csproj
+        run: msbuild ConsoleTestGetAssemblyAttributes.csproj -restore
