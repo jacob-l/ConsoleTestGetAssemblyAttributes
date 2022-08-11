@@ -1,20 +1,29 @@
-﻿
+﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
-var sb = new StringBuilder();
-sb.AppendLine("Assembly:");
-var assembly = Assembly.GetEntryAssembly();
+namespace ConsoleTestGetAssemblyAttributes;
 
-var attributes = Attribute.GetCustomAttributes(assembly, typeof(AssemblyMetadataAttribute))
-    .OfType<AssemblyMetadataAttribute>().ToList();
-
-sb.AppendLine(assembly.FullName + ":");
-
-foreach (var att in attributes)
+public class Program
 {
-    sb.AppendLine(att.Key + " - " + att.Value);
-}
+    public static void Main()
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine("Assembly:");
+        var assembly = Assembly.GetEntryAssembly();
 
-Console.WriteLine("------");
-Console.WriteLine(sb);
+        var attributes = Attribute.GetCustomAttributes(assembly, typeof(AssemblyMetadataAttribute))
+            .OfType<AssemblyMetadataAttribute>().ToList();
+
+        sb.AppendLine(assembly.FullName + ":");
+
+        foreach (var att in attributes)
+        {
+            sb.AppendLine(att.Key + " - " + att.Value);
+        }
+
+        Console.WriteLine("------");
+        Console.WriteLine(sb);
+    }
+}
