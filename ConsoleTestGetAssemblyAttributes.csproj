@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
+    <Compile Remove="ClassLibrary1\**" />
+    <EmbeddedResource Remove="ClassLibrary1\**" />
+    <None Remove="ClassLibrary1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
 </Project>
